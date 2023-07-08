@@ -18,7 +18,9 @@
 <div align="center">
 <h3> ✨ Platforms & Languages ✨ </h3>
   <div align="center">
-<img src="https://img.shields.io/badge/JAVA-FDC43E?style=flat&logo=coffeescript&logoColor=black"/>
+    <img src="https://img.shields.io/badge/JAVA-512BD4?style=flat&logo=coffeescript&logoColor=ffffff"/>
+    <img src="https://img.shields.io/badge/Oracle-FF1119?style=flat&logo=Oracle&logoColor=ffffff"/>
+
 </div>
 <br>
 <h3> ⚙ Tools ⚙ </h3>
