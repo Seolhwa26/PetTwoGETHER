@@ -10,9 +10,13 @@
 <br>
 
 <div align="center">
-<h3> 📚 Tech Stack📚 </h3>
+<h3> 📚 Tech Stack 📚 </h3>
 </div>
 
-<img src="https://img.shields.io/badge/JAVA-FDC43E?style=flat&logo=openid&logoColor=black"/>
+<br>
+<br>
 
+<div align="center">
+<img src="https://img.shields.io/badge/JAVA-FDC43E?style=flat&logo=openid&logoColor=black"/>
+</div>
 
