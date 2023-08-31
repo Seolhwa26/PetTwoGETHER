@@ -64,62 +64,59 @@ public class MemberController {
 
 		
 	@GetMapping("/main/template")
-	   public String template() {
+	public String template() {
 	      
-	      return "main.template";
-	   }
+	   return "main.template";
+	}
 	   
-	   //설   
+	//설화 부분 START
 	   @GetMapping("/member/login")
 	   public String login() {
 	      
 	      return "member.login";
 	   }
 	   
-	   //설
 	   @PostMapping(value="/member/loginok")
 	   public String loginok(String user, String id, String pass, HttpSession session, Model model) {
 	      
-		   String level = "";
-	         String sseq = "";
+	      String level = "";
+	      String sseq = "";
 	         
-	         
-	         if (user.equals("m")) {
-	            MemberDTO dto = service.mLoginCheck(id, pass);
-	            if (dto != null) {
-	               level = dto.getMlevel();
-	               sseq = dto.getMseq();
-	            }
-	            
-	         } else if (user.equals("p")) {
-	            PetSitterDTO dto = service.fLoginCheck(id, pass);
-	            if (dto != null) {
-	               level = dto.getPslevel();
-	               sseq = dto.getPsseq();
-	            }
-	         } else {
-	            AdminDTO dto = service.aLoginCheck(id, pass);
-	            if (dto != null) {
-	               level = dto.getAdlevel();
-	               sseq = dto.getAdseq();
-	            }
+	      if (user.equals("m")) {
+	         MemberDTO dto = service.mLoginCheck(id, pass);
+	         if (dto != null) {
+	            level = dto.getMlevel();
+	            sseq = dto.getMseq();
 	         }
-	                  
-	         if (!level.equals("")) {
-	            //로그인 성공
-	            session.setAttribute("auth", id); 
-	            session.setAttribute("lv", level);
-	            session.setAttribute("sseq",sseq);
 	            
-	            return "redirect:/main/index";
-	         } else {
-	            //로그인 실패
-	            return "member.login";
+	      } else if (user.equals("p")) {
+	         PetSitterDTO dto = service.fLoginCheck(id, pass);
+	         if (dto != null) {
+	            level = dto.getPslevel();
+	            sseq = dto.getPsseq();
 	         }
-	         
+	      } else {
+	         AdminDTO dto = service.aLoginCheck(id, pass);
+	         if (dto != null) {
+	            level = dto.getAdlevel();
+	            sseq = dto.getAdseq();
+	         }
 	      }
+	                  
+	      if (!level.equals("")) {
+	         //로그인 성공
+	         session.setAttribute("auth", id); 
+	         session.setAttribute("lv", level);
+	         session.setAttribute("sseq",sseq);
+	            
+	         return "redirect:/main/index";
+	      } else {
+	         //로그인 실패
+	         return "member.login";
+	      }
+	         
+	   }
 	   
-	   //설   
 	   @GetMapping("/member/logout")
 	   public String logout(HttpSession session) {
 	      
@@ -130,7 +127,7 @@ public class MemberController {
 	      return "redirect:/member/login";
 	   }
 	   
-	 //설(마이페이지)1/21
+	   //마이페이지-1/21
 	   @GetMapping("/member/mmypage")
 	   public String mmypage(HttpSession session, Model model) {
 	      
@@ -147,7 +144,7 @@ public class MemberController {
 	      return "member.mmypage";
 	   }
 	   
-	   //설(마이페이지-펫추가)
+	   //마이페이지-펫추가
 	   @PostMapping("/member/petaddok")
 	   public String mmypageadd(HttpSession session, MultipartHttpServletRequest mreq) {
 	      
@@ -162,7 +159,7 @@ public class MemberController {
 	      }
 	   }
 	   
-	   //설(마이페이지-펫수정)
+	   //마이페이지-펫수정
 	   @PostMapping("/member/peteditok")
 	   public String mmypageedit(HttpSession session, MultipartHttpServletRequest mreq) {
 	      
@@ -175,7 +172,7 @@ public class MemberController {
 	      }
 	   }
 	   
-	   //설(마이페이지-펫삭제)
+	   //마이페이지-펫삭제
 	   @GetMapping("/member/petdelok")
 	   public String mmypagedel(HttpSession session, HttpServletRequest req) {
 	      
@@ -188,7 +185,7 @@ public class MemberController {
 	      }
 	   }
 	   
-	   //설(돌봄페이지 회원 1/25)
+	   //돌봄페이지 회원-1/25
 	   @GetMapping("/member/mdiary")
 	   public String mdiary(HttpSession session, HttpServletRequest req, Model model) {
 	      
@@ -203,7 +200,7 @@ public class MemberController {
 	      return "member.mdiary";
 	   }
 	   
-	   //설(돌봄페이지 취소 1/25)
+	   //돌봄페이지 취소-1/25
 	   @GetMapping("/member/mdiarydel")
 	   public String mdiarydel(HttpSession session, HttpServletRequest req, Model model) {
 	      
@@ -218,7 +215,7 @@ public class MemberController {
 	      }
 	   }
 	   
-	   //설(찾기 취소 1/26)
+	   //찾기 취소-1/26
 	   @GetMapping("/member/mstraydel")
 	   public String mstraydel(HttpSession session, HttpServletRequest req, Model model) {
 	      
@@ -231,9 +228,9 @@ public class MemberController {
 	      } else {
 	         return "main.index";
 	      }
-	   }
+	   }  
 	   
-	   //설(회원탈퇴 1/26)
+	   //회원탈퇴-1/26
 	   @GetMapping("/member/moutmember")
 	   public String moutmember(HttpSession session, HttpServletRequest req) {
 	      
@@ -247,7 +244,8 @@ public class MemberController {
 	         return "main.index";
 	      }
 	   }
-	   
+	
+	// 설화 부분 END   
 	   
 
 	   

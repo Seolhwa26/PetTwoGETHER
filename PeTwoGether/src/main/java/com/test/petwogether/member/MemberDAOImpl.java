@@ -20,19 +20,18 @@ public class MemberDAOImpl implements MemberDAO {
 	private SqlSessionTemplate sql;
 	
 	// 설화 부분 START
-	@Override
-	public MemberDTO mLoginCheck(MemberDTO dto) {
+	   @Override
+	   public MemberDTO mLoginCheck(MemberDTO dto) {
 
-		return this.sql.selectOne("member.auth", dto);
-	}
+		   return this.sql.selectOne("member.auth", dto);
+	   }
 	
-	//설
 	   @Override
 	   public List<PetDTO> mpet(String mseq) {
 	   
 	      return this.sql.selectList("member.mpet", mseq);
 	   }
-	   //설
+	
 	   @Override
 	   public int petadd(PetDTO dto) {
 	      
@@ -43,63 +42,54 @@ public class MemberDAOImpl implements MemberDAO {
 	      return this.sql.insert("member.petadd", dto);
 	   }
 
-	   //설
 	   @Override
 	   public int mpetadd(String mseq) {
 	      
 	      return this.sql.insert("member.mpetadd", mseq);
 	   }
-	   
-	   //설
+
 	   @Override
 	   public int petedit(PetDTO dto) {
 	      
 	      return this.sql.update("member.petedit", dto);
 	   }
 
-	   //설
 	   @Override
 	   public int petdel(String pseq) {
 	      
 	      return this.sql.update("member.petdel", pseq);
 	   }
 
-	   //설
 	   @Override
 	   public DiaryDTO gmdiary(DiaryDTO dto) {
 	      
 	      return this.sql.selectOne("member.gmdiary", dto);
 	   }
 
-	   //설
 	   @Override
 	   public List<CareServiceDTO> mCare(String mseq) {
 	      
 	      return this.sql.selectList("member.mcare", mseq);
 	   }
 
-	   //설
 	   @Override
 	   public int mdiarydel(String csseq) {
 	      
 	      return this.sql.delete("member.mdiarydel", csseq);
 	   }
 
-	   //설
 	   @Override
 	   public List<StrayDTO> mStray(String mseq) {
 	      
 	      return this.sql.selectList("member.mstray", mseq);
 	   }
 
-	   //설
 	   @Override
 	   public int mstraydel(String sseq) {
 	      
 	      return this.sql.delete("member.mstraydel", sseq);
 	   }
 
-	   //설
 	   @Override
 	   public int moutmember(String mseq) {
 	      
