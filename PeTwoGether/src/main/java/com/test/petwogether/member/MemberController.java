@@ -103,7 +103,7 @@ public class MemberController {
 	         }
 	      }
 	                  
-	      if (!level.equals("")) {
+	      if (!level.equals("") && !level.equals("4")) {
 	         //로그인 성공
 	         session.setAttribute("auth", id); 
 	         session.setAttribute("lv", level);
